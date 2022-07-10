@@ -11,9 +11,11 @@ const auth = require("../../middleware/auth");
 // Models
 const User = require("../../models/User");
 
-// @route   GET api/auth
-// @desc    Test route
-// @access  Public
+/**
+ * @route   GET api/auth
+ * @desc    Test route
+ * @access  Public
+ */
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -24,9 +26,11 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// @route   POST api/auth
-// @desc    Authenticate User and Get Token
-// @access  Public
+/**
+ * @route   POST api/auth
+ * @desc    Authenticate User and Get Token
+ * @access  Public
+ */
 router.post(
   "/",
   [

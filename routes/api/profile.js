@@ -9,9 +9,11 @@ const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 const Profile = require("../../models/Profile");
 
-// @route   GET api/profile/me
-// @desc    Get current user's Profile
-// @access  Private
+/**
+ * @route   GET api/profile/me
+ * @desc    Get current user's Profile
+ * @access  Private
+ */
 router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
@@ -29,9 +31,11 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
-// @route   POST api/profile
-// @desc    Create / Update User Profile
-// @access  Private
+/**
+ * @route   POST api/profile
+ * @desc    Create / Update User Profile
+ * @access  Private
+ */
 router.post(
   "/",
   [
