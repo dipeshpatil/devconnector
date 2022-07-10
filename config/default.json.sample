@@ -1,5 +1,8 @@
 {
   "mongoURI": "",
   "jwtSecret": "",
-  "jwtOptions": { "expiresIn": 360000 }
+  "jwtOptions": { "expiresIn": 360000 },
+  "defaultProfileFields": {
+    "bio": "Hey there I'm using devconnect!"
+  }
 }
