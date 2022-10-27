@@ -1,25 +1,29 @@
 import { Fragment } from "react";
 import { Route } from "react-router-dom";
 
-import { Container } from "react-bootstrap";
-
-import NavBar from "./components/NavBar/NavBar";
-import Login from "./components/auth/Login/Login";
-import Register from "./components/auth/Register/Register";
-
-import HomePage from "./pages/Home/HomePage";
+import Navbar from "./components/layout/Navbar";
+import Landing from "./components/layout/Landing";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Alert from "./components/layout/Alert";
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
 
 import "./App.css";
 
 const App = () => (
-  <Fragment>
-    <NavBar />
-    <Container>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-    </Container>
-  </Fragment>
+  <Provider store={store}>
+    <Fragment>
+      <Navbar />
+      <Route exact path="/" component={Landing} />
+      <section className="container">
+        <Alert />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+      </section>
+    </Fragment>
+  </Provider>
 );
 
 export default App;
