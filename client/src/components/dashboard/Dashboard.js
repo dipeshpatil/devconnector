@@ -14,7 +14,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return loading && profile === null ? (
     <Spinner />
@@ -29,7 +29,7 @@ const Dashboard = ({
       ) : (
         <Fragment>
           <p>You have not set up a profile, please add some info!</p>
-          <Link to="/create_profile" className="btn btn-primary my-1">
+          <Link to="/create-profile" className="btn btn-primary my-1">
             Create Profile
           </Link>
         </Fragment>
